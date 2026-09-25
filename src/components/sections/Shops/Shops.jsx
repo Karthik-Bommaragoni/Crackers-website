@@ -83,13 +83,21 @@ export default function Shops() {
       </span>
 
     <span className="shops__secondary-title">
-  <span>10 Shops</span>
-  <span className="shops__title-dot">•</span>
-  <span>One Destination</span>
+  <span>10 Shops One Destination</span>
+  {/* <span className="shops__title-dot">•</span>
+  <span>One Destination</span> */}
 </span>
     </>
   }
-  intro="More variety More joy All in one place"
+ intro={
+  <>
+    <span>More Variety</span>
+    <span className="shops__intro-separator">|</span>
+    <span>More Joy</span>
+    <span className="shops__intro-separator">|</span>
+    <span>All in One Place</span>
+  </>
+}
 />
       </div>
     </section>

@@ -115,14 +115,32 @@ font-size: clamp(2.4rem, 1.7rem + 2.8vw, 4rem);
 
   color: var(--white);
 }
+.shops__head .section-header__intro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.55em;
+}
 
-.shops__title-dot {
+/* .shops__intro-dot {
+  color: var(--gold-bright);
+  font-size: 0.8em;
+  line-height: 1;
+} */
+.shops__intro-separator {
+  color: var(--gold-bright);
+  font-size: 0.9em;
+  line-height: 1;
+  font-weight: 500;
+}
+/* .shops__title-dot {
   color: var(--gold-bright, #F2A91D);
 
   font-size: 0.7em;
 
   line-height: 1;
-}
+} */
 .shops__line {
   display: block;
 }
