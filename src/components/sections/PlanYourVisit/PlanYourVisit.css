@@ -1,0 +1,295 @@
+/* ==========================================================
+   Plan Your Visit — location, map-led
+   ========================================================== */
+.visit {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  padding: clamp(4.5rem, 9vw, 7rem) 0 clamp(4rem, 7vw, 5.5rem);
+  background:
+    radial-gradient(50% 55% at 75% 40%, rgba(20, 58, 132, 0.55) 0%, transparent 70%),
+    linear-gradient(180deg, var(--navy-deep) 0%, var(--navy) 60%, var(--navy-deep) 100%);
+}
+
+.visit__inner {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 0.9fr) minmax(0, 1.1fr);
+
+  align-items: center;
+
+  gap: clamp(2.5rem, 5.5vw, 5.5rem);
+
+  max-width: 1360px;
+}
+.visit__line {
+  display: block;
+}
+
+.visit__copy .section-header__title {
+  font-size: clamp(2.4rem, 1.3rem + 3.1vw, 4.2rem);
+  line-height: 1.06;
+}
+
+.visit__lede {
+  max-width: 44ch;
+  margin-top: 1.5rem;
+  font-size: clamp(1rem, 0.95rem + 0.25vw, 1.1rem);
+  line-height: 1.75;
+  color: rgba(248, 245, 238, 0.8);
+}
+
+.visit__cta {
+  margin-top: 2rem;
+}
+
+.visit__signature {
+  position: relative;
+  display: inline-block;
+  margin-top: 1.9rem;
+  padding-bottom: 0.7rem;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: var(--gold-pale);
+}
+
+.visit__signature::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  min-width: 180px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+}
+
+/* ---------- Map ---------- */
+/* ---------- Map ---------- */
+
+.visit__map {
+  width: 100%;
+  margin: 0;
+}
+
+.visit__map-frame {
+  display: block;
+
+  width: 100%;
+
+  /* Taller visual presence like Parking / Safety */
+  aspect-ratio: 1.3 / 1;
+
+  overflow: hidden;
+
+  border-radius: 26px;
+
+  border: 1px solid rgba(212, 175, 55, 0.55);
+
+  background: var(--navy-deep);
+
+  box-shadow:
+    0 0 0 6px rgba(212, 175, 55, 0.06),
+    0 0 60px -18px rgba(242, 169, 29, 0.45),
+    0 40px 70px -40px rgba(0, 0, 0, 0.85);
+
+  cursor: zoom-in;
+}
+
+.visit__map-image {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  /* object-fit: cover; */
+  /* object-position: center; */
+
+  transform: scale(1);
+
+  transition: transform 1.6s var(--ease-out);
+}
+
+.visit__map.is-visible .visit__map-image {
+  transform: scale(1.015);
+}
+
+.visit__hint {
+  display: none;
+  margin-top: 0.8rem;
+  font-size: 0.8rem;
+  text-align: center;
+  color: rgba(248, 245, 238, 0.55);
+}
+
+/* ---------- Facts strip ---------- */
+.visit__facts-wrap {
+  position: relative;
+  z-index: 2;
+  max-width: 1320px;
+  margin-top: clamp(3rem, 6vw, 4.5rem);
+}
+
+.visit__divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.visit__divider::before,
+.visit__divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.7));
+}
+
+.visit__divider::after {
+  background: linear-gradient(90deg, rgba(212, 175, 55, 0.7), transparent);
+}
+
+.visit__divider svg {
+  width: 38px;
+  flex-shrink: 0;
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 1.3;
+}
+
+.visit__facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 2rem;
+}
+
+.fact {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.25rem 1rem;
+  text-align: center;
+}
+
+.fact + .fact::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10%;
+  bottom: 10%;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, rgba(212, 175, 55, 0.5), transparent);
+}
+
+.fact__icon {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  margin-bottom: 0.9rem;
+  border-radius: 50%;
+  color: var(--gold-bright);
+  border: 1px solid rgba(212, 175, 55, 0.6);
+}
+
+.fact__value {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.1rem, 0.95rem + 0.6vw, 1.5rem);
+  line-height: 1.2;
+  color: var(--gold-bright);
+  font-variant-numeric: lining-nums;
+  text-wrap: balance;
+}
+
+.fact__label {
+  margin-top: 0.35rem;
+  font-size: 0.92rem;
+  color: rgba(248, 245, 238, 0.75);
+}
+
+/* ---------- Festive details ---------- */
+.visit__lantern {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: clamp(14px, 2.6vw, 44px);
+  width: 32px;
+}
+
+.visit__burst {
+  top: -160px;
+  right: -160px;
+  width: 400px;
+  opacity: 0.07;
+}
+
+.sparkles--visit .sparkle:nth-child(1) { top: 10%; left: 30%; animation-delay: 0.5s; }
+.sparkles--visit .sparkle:nth-child(2) { top: 6%; left: 88%; width: 10px; height: 10px; animation-delay: 2.3s; }
+.sparkles--visit .sparkle:nth-child(3) { top: 50%; left: 2%; width: 6px; height: 6px; animation-delay: 3.5s; }
+.sparkles--visit .sparkle:nth-child(4) { top: 92%; left: 12%; width: 6px; height: 6px; animation-delay: 1.4s; }
+.sparkles--visit .sparkle:nth-child(5) { top: 94%; left: 90%; width: 7px; height: 7px; animation-delay: 4.1s; }
+.sparkles--visit .sparkle:nth-child(6) { top: 4%; left: 55%; width: 5px; height: 5px; animation-delay: 2.8s; }
+
+/* ==========================================================
+   Responsive
+   ========================================================== */
+/* Below 1200px the map needs the full width to stay legible */
+@media (max-width: 1199px) {
+  .visit__inner {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 880px;
+  }
+
+  .visit__lantern {
+    display: none;
+  }
+}
+
+@media (max-width: 991px) {
+  .visit__hint {
+    display: block;
+  }
+}
+
+@media (max-width: 767px) {
+  .visit__facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 2rem;
+  }
+
+  .fact + .fact::before {
+    display: none;
+  }
+
+  .fact:nth-child(even)::before {
+    display: block;
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10%;
+    bottom: 10%;
+    width: 1px;
+    background: linear-gradient(180deg, transparent, rgba(212, 175, 55, 0.5), transparent);
+  }
+
+  .visit__map-frame {
+    border-radius: 18px;
+  }
+}
+
+@media (max-width: 479px) {
+  .visit__cta .btn {
+    width: 100%;
+  }
+
+  .fact {
+    padding-inline: 0.5rem;
+  }
+}

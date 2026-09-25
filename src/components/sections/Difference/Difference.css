@@ -1,0 +1,236 @@
+/* ==========================================================
+   The Zuzuvadi Difference — navy continuation of the hero
+   ========================================================== */
+.difference {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  padding: clamp(4.5rem, 9vw, 7.5rem) 0 clamp(4.5rem, 8.5vw, 7rem);
+  color: var(--white);
+  background:
+    radial-gradient(55% 60% at 50% 0%, rgba(20, 58, 132, 0.45) 0%, transparent 70%),
+    radial-gradient(40% 50% at 100% 100%, rgba(122, 23, 23, 0.16) 0%, transparent 70%),
+    linear-gradient(180deg, var(--navy-deep) 0%, var(--navy) 100%);
+}
+
+.difference__inner {
+  position: relative;
+  z-index: 2;
+}
+
+.difference__head {
+  margin-bottom: clamp(3rem, 6vw, 4.5rem);
+}
+
+.difference__head .section-header__title {
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+/* ---------- Benefits row ---------- */
+.difference__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid rgba(212, 175, 55, 0.18);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.18);
+}
+
+.benefit {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: clamp(2.25rem, 4vw, 3.25rem) clamp(1rem, 2vw, 2rem);
+  text-align: center;
+}
+
+/* Vertical gold divider between benefits (fades at both ends) */
+.benefit + .benefit::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 18%;
+  bottom: 18%;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, rgba(212, 175, 55, 0.55), transparent);
+}
+
+.benefit__icon {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 76px;
+  height: 76px;
+  margin-bottom: 1.4rem;
+  border-radius: 50%;
+  color: var(--gold-bright);
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  background: radial-gradient(circle at 50% 35%, rgba(242, 169, 29, 0.14), transparent 70%);
+  transition: box-shadow 0.4s var(--ease-out), border-color 0.3s ease;
+}
+
+/* Fine outer ring */
+.benefit__icon::after {
+  content: '';
+  position: absolute;
+  inset: -7px;
+  border-radius: 50%;
+  border: 1px dashed rgba(212, 175, 55, 0.22);
+}
+
+.benefit:hover .benefit__icon {
+  border-color: var(--gold);
+  box-shadow: 0 0 28px -6px rgba(242, 169, 29, 0.55);
+}
+
+.benefit__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.35rem, 1.1rem + 0.8vw, 1.75rem);
+  line-height: 1.15;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+.benefit__text {
+  margin-top: 0.5rem;
+  font-size: 0.98rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: rgba(248, 245, 238, 0.7);
+}
+
+/* Small gold diamond at the middle of each vertical divider */
+.benefit + .benefit::after {
+  content: '';
+  position: absolute;
+  left: -3.5px;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  background: var(--gold-bright);
+  transform: translateY(-50%) rotate(45deg);
+}
+
+/* ---------- Festive details ---------- */
+.difference__burst {
+  top: auto;
+  right: auto;
+  width: 420px;
+  opacity: 0.07;
+}
+
+.difference__burst--left {
+  left: -190px;
+  top: -150px;
+}
+
+.difference__burst--right {
+  right: -200px;
+  bottom: -220px;
+}
+
+.sparkles--difference .sparkle:nth-child(1) { top: 14%; left: 12%; animation-delay: 0.5s; }
+.sparkles--difference .sparkle:nth-child(2) { top: 22%; left: 86%; width: 10px; height: 10px; animation-delay: 2.1s; }
+.sparkles--difference .sparkle:nth-child(3) { top: 9%; left: 64%; width: 5px; height: 5px; animation-delay: 3.4s; }
+.sparkles--difference .sparkle:nth-child(4) { top: 86%; left: 22%; width: 6px; height: 6px; animation-delay: 1.3s; }
+.sparkles--difference .sparkle:nth-child(5) { top: 90%; left: 74%; width: 8px; height: 8px; animation-delay: 4.2s; }
+.sparkles--difference .sparkle:nth-child(6) { top: 30%; left: 4%; width: 5px; height: 5px; animation-delay: 2.8s; }
+.sparkles--difference .sparkle:nth-child(7) { top: 12%; left: 36%; width: 6px; height: 6px; animation-delay: 4.8s; }
+
+/* ==========================================================
+   Responsive
+   ========================================================== */
+
+/* Tablet: 2 × 2 grid with a cross of gold dividers */
+@media (max-width: 991px) {
+  .difference__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .benefit + .benefit::before,
+  .benefit + .benefit::after {
+    display: none;
+  }
+
+  .benefit:nth-child(even)::before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 18%;
+    bottom: 18%;
+    width: 1px;
+    background: linear-gradient(180deg, transparent, rgba(212, 175, 55, 0.55), transparent);
+  }
+
+  .benefit:nth-child(n + 3)::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    width: auto;
+    transform: none;
+    left: 14%;
+    right: 14%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.45), transparent);
+  }
+}
+
+/* Phones: compact 2 × 2 */
+@media (max-width: 599px) {
+  .benefit {
+    padding: 1.9rem 0.6rem;
+  }
+
+  .benefit__icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 1.1rem;
+  }
+
+  .benefit__icon svg {
+    width: 25px;
+    height: 25px;
+  }
+
+  .benefit__title {
+    font-size: 1.15rem;
+    letter-spacing: 0.08em;
+  }
+
+  .benefit__text {
+    font-size: 0.88rem;
+  }
+
+  .difference__burst {
+    width: 300px;
+  }
+}
+
+/* Very narrow screens: single column */
+@media (max-width: 339px) {
+  .difference__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .benefit:nth-child(even)::before {
+    display: none;
+  }
+
+  .benefit + .benefit::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    width: auto;
+    height: 1px;
+    transform: none;
+    left: 14%;
+    right: 14%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.45), transparent);
+  }
+}

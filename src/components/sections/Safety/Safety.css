@@ -1,0 +1,1038 @@
+/* ==========================================================
+   SAFETY SECTION
+   Full viewport hero + existing safety information below
+   ========================================================== */
+
+.safety {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+
+  color: var(--white);
+
+  background:
+    radial-gradient(55% 75% at 78% 45%,
+      rgba(20, 58, 132, 0.32) 0%,
+      transparent 72%),
+    radial-gradient(45% 70% at 8% 85%,
+      rgba(242, 169, 29, 0.055) 0%,
+      transparent 70%),
+    linear-gradient(135deg,
+      #061b42 0%,
+      #09275a 48%,
+      #071f4d 100%);
+}
+
+/* ==========================================================
+   FIRST VIEWPORT
+   ========================================================== */
+
+.safety__stage {
+  position: relative;
+
+  width: 100%;
+  min-height: 100vh;
+
+  overflow: hidden;
+  isolation: isolate;
+
+  display: flex;
+  align-items: center;
+
+  background:
+    radial-gradient(45% 75% at 12% 50%,
+      rgba(20, 58, 132, 0.32) 0%,
+      transparent 72%),
+    radial-gradient(40% 70% at 90% 45%,
+      rgba(20, 58, 132, 0.25) 0%,
+      transparent 72%),
+    #071f4d;
+}
+
+
+/* ==========================================================
+   BACKGROUND DECORATIVE PHOTO LAYER
+   ========================================================== */
+
+.safety__photo {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 0;
+
+  overflow: hidden;
+
+  pointer-events: none;
+}
+
+
+/*
+  We keep the original market photograph extremely subtle.
+  The important visual is the site-plan image on the right.
+*/
+
+.safety__photo::after {
+  content: '';
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(90deg,
+      rgba(7, 31, 77, 0.96) 0%,
+      rgba(7, 31, 77, 0.9) 45%,
+      rgba(7, 31, 77, 0.96) 100%);
+
+  pointer-events: none;
+}
+
+
+.safety__image {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  opacity: 0.08;
+
+  transform: scale(1.04);
+
+  filter:
+    saturate(0.75) contrast(1.05);
+
+  pointer-events: none;
+}
+
+
+/* ==========================================================
+   CONTENT CONTAINER
+   ========================================================== */
+
+.safety__intro {
+  position: relative;
+  z-index: 4;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 0.9fr) minmax(0, 1.1fr);
+
+  align-items: flex-start;
+
+  gap: clamp(2.5rem, 5.5vw, 5.5rem);
+
+  max-width: 1360px;
+
+  margin-inline: auto;
+}
+
+/* ==========================================================
+   LEFT CONTENT
+   ========================================================== */
+
+.safety__copy {
+  min-width: 0;
+}
+
+
+/*
+  Safety.jsx currently places SectionHeader directly inside
+  safety__intro, so these styles target the existing structure.
+*/
+
+.safety__head {
+  margin: 0;
+
+  text-align: left;
+}
+
+
+/* Eyebrow */
+
+.safety__head .section-header__eyebrow {
+  margin-bottom: clamp(1rem, 1.5vw, 1.5rem);
+}
+
+
+
+/* Main heading */
+.safety__head .section-header__title {
+  max-width: 760px;
+
+  margin: 0;
+  font-size: clamp(2.5rem, 1.4rem + 3.4vw, 4.4rem);
+    line-height: 1.04;
+
+  letter-spacing: -0.04em;
+
+  text-wrap: balance;
+
+  color: var(--white);
+
+  text-shadow:
+    0 5px 30px rgba(0, 0, 0, 0.28);
+}
+
+
+/* Gold "Mind." */
+
+.safety__head .text-gold {
+  color: var(--gold-bright);
+}
+
+
+/* Italic supporting line */
+
+.safety__head .section-header__intro {
+  max-width: 650px;
+
+  margin-top: 1rem;
+
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+
+  font-size:
+    clamp(1.15rem, 1.35vw, 1.5rem);
+
+  line-height: 1.4;
+
+  color: var(--cream);
+
+  text-align: left;
+}
+
+
+/* Description */
+
+.safety__lede {
+  max-width: 620px;
+
+  margin:
+    clamp(1.4rem, 2vw, 2rem) 0 0;
+
+  font-size:
+    clamp(1rem, 1.15vw, 1.2rem);
+
+  line-height: 1.7;
+
+  color: rgba(248, 245, 238, 0.78);
+
+  text-shadow:
+    0 2px 14px rgba(0, 0, 0, 0.35);
+}
+
+
+/* ==========================================================
+   RIGHT SIDE SITE PLAN
+   ========================================================== */
+
+
+/*
+  The current JSX uses .safety__photo for the old background
+  image. If your updated JSX has .safety__layout / .safety__frame,
+  these rules will style them.
+*/
+
+.safety__layout {
+  position: relative;
+  z-index: 5;
+
+  width: 100%;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+
+/* Outer gold frame */
+
+.safety__frame {
+  position: relative;
+
+  width: 100%;
+  max-width: 850px;
+
+  aspect-ratio: 1.18 / 1;
+
+  overflow: hidden;
+
+  border-radius: 28px;
+
+  border: 1px solid rgba(212, 175, 55, 0.65);
+
+  background:
+      linear-gradient(145deg,
+        rgba(255, 255, 255, 0.035),
+        rgba(255, 255, 255, 0.01));
+  
+    box-shadow:
+      0 0 0 6px rgba(212, 175, 55, 0.06),
+      0 0 60px -18px rgba(242, 169, 29, 0.45),
+      0 40px 70px -40px rgba(0, 0, 0, 0.85);
+}
+/* ==========================================================
+   SAFETY HIGHLIGHT TAG
+   ========================================================== */
+
+.safety__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+
+  margin-top: 2rem;
+  padding: 0.75rem 1.6rem 0.75rem 1rem;
+
+  border: 1px solid rgba(242, 169, 29, 0.65);
+  border-radius: 999px;
+
+  background:
+    linear-gradient(135deg,
+      rgba(20, 58, 132, 0.75),
+      rgba(6, 27, 66, 0.92));
+
+  box-shadow:
+    0 0 0 1px rgba(242, 169, 29, 0.05),
+    0 8px 30px rgba(0, 0, 0, 0.25),
+    0 0 28px rgba(242, 169, 29, 0.08);
+
+  backdrop-filter: blur(10px);
+}
+
+
+.safety__tag-icon {
+  display: grid;
+  place-items: center;
+
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  color: var(--gold-bright);
+
+  background:
+    radial-gradient(circle,
+      rgba(242, 169, 29, 0.18),
+      rgba(242, 169, 29, 0.02) 70%);
+
+  box-shadow:
+    0 0 18px rgba(242, 169, 29, 0.18);
+}
+
+
+.safety__tag-content {
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.08rem;
+}
+
+
+.safety__tag-content strong {
+  font-family: var(--font-body);
+
+  font-size: 0.78rem;
+  font-weight: 700;
+
+  letter-spacing: 0.16em;
+
+  color: var(--gold-bright);
+}
+
+
+.safety__tag-content span {
+  font-size: 0.92rem;
+  font-weight: 500;
+
+  color: rgba(248, 245, 238, 0.9);
+}
+
+
+/*
+  Offset gold outline similar to your other sections.
+*/
+
+.safety__frame::after {
+  content: '';
+
+  position: absolute;
+
+  inset: 0;
+
+  border:
+    1px solid rgba(212, 175, 55, 0.22);
+
+  border-radius: 26px;
+
+  transform:
+    translate(14px, 14px);
+
+  pointer-events: none;
+
+  z-index: 2;
+}
+
+
+/* Actual site-plan image */
+
+.safety__layout-image {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+  object-position: center;
+
+  background: #061a32;
+
+  transform: scale(1.015);
+
+  transition:
+    transform 1.5s var(--ease-out);
+}
+
+.safety__stage.is-visible .safety__layout-image {
+  transform: scale(1);
+}
+
+
+/* ==========================================================
+   FIREWORKS
+   ========================================================== */
+
+.safety__fireworks {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: 2;
+
+  pointer-events: none;
+
+  opacity: 0.45;
+}
+
+
+/*
+  Keep fireworks away from the main text.
+*/
+
+.safety__fireworks .burst--gold {
+  opacity: 0.55;
+}
+
+
+/* ==========================================================
+   SPARKLES
+   ========================================================== */
+
+/* ==========================================================
+   SAFETY SPARKLES
+   ========================================================== */
+
+.sparkles--safety {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: 2;
+
+  pointer-events: none;
+
+  opacity: 1;
+}
+
+.sparkles--safety .sparkle {
+  opacity: 0.7;
+
+  z-index: 2;
+}
+.sparkles--safety .sparkle:nth-child(1) {
+  top: 12%;
+  left: 6%;
+  width: 7px;
+  height: 7px;
+  animation-delay: 0.5s;
+}
+
+.sparkles--safety .sparkle:nth-child(2) {
+  top: 18%;
+  left: 46%;
+  width: 5px;
+  height: 5px;
+  animation-delay: 2s;
+}
+
+.sparkles--safety .sparkle:nth-child(3) {
+  top: 8%;
+  right: 7%;
+  width: 8px;
+  height: 8px;
+  animation-delay: 3.2s;
+}
+
+.sparkles--safety .sparkle:nth-child(4) {
+  top: 48%;
+  left: 3%;
+  width: 5px;
+  height: 5px;
+  animation-delay: 1.4s;
+}
+
+.sparkles--safety .sparkle:nth-child(5) {
+  top: 55%;
+  right: 4%;
+  width: 7px;
+  height: 7px;
+  animation-delay: 4s;
+}
+
+.sparkles--safety .sparkle:nth-child(6) {
+  bottom: 12%;
+  left: 48%;
+  width: 5px;
+  height: 5px;
+  animation-delay: 2.8s;
+}
+
+.sparkles--safety .sparkle:nth-child(7) {
+  bottom: 18%;
+  right: 12%;
+  width: 6px;
+  height: 6px;
+  animation-delay: 1.8s;
+}
+
+
+/* ==========================================================
+   INFORMATION BAND
+   Existing lower section
+   ========================================================== */
+
+.safety__band {
+  position: relative;
+
+  z-index: 5;
+
+  padding:
+    clamp(3.5rem, 5vw, 5rem) 0 clamp(4.5rem, 8vw, 6.5rem);
+
+  background: #071f4d;
+
+  border-top:
+    1px solid rgba(212, 175, 55, 0.14);
+}
+
+
+.safety__band-inner {
+  max-width: 1400px;
+}
+
+
+/* ==========================================================
+   VISIBLE SAFETY MEASURES TITLE
+   ========================================================== */
+
+.safety__band-title {
+  margin-top: 0;
+
+  font-size:
+    clamp(0.85rem, 0.75rem + 0.3vw, 1rem);
+
+  color: var(--gold-bright);
+
+  text-align: center;
+}
+
+
+/* ==========================================================
+   SAFETY MEASURE CARDS
+   ========================================================== */
+
+.safety__measures {
+  display: grid;
+
+  grid-template-columns:
+    repeat(5, minmax(0, 1fr));
+
+  margin-top:
+    clamp(2.5rem, 4vw, 3.5rem);
+}
+
+
+.measure {
+  position: relative;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  padding:
+    0.5rem clamp(0.9rem, 1.6vw, 1.75rem);
+
+  text-align: center;
+}
+
+
+.measure+.measure::before {
+  content: '';
+
+  position: absolute;
+
+  left: 0;
+
+  top: 12%;
+  bottom: 8%;
+
+  width: 1px;
+
+  background:
+    linear-gradient(180deg,
+      transparent,
+      rgba(212, 175, 55, 0.45),
+      transparent);
+}
+
+
+/* Icon */
+
+.measure__icon {
+  display: grid;
+
+  place-items: center;
+
+  width: 66px;
+  height: 66px;
+
+  margin-bottom: 1.1rem;
+
+  border-radius: 50%;
+
+  color: var(--gold-bright);
+
+  border:
+    1px solid rgba(212, 175, 55, 0.6);
+
+  background:
+    radial-gradient(circle at 50% 35%,
+      rgba(242, 169, 29, 0.14),
+      transparent 70%);
+}
+
+
+/* Title */
+
+.measure__title {
+  font-family: var(--font-display);
+
+  font-weight: 700;
+
+  font-size:
+    clamp(1.05rem, 0.98rem + 0.3vw, 1.22rem);
+
+  line-height: 1.25;
+
+  color: var(--white);
+
+  text-wrap: balance;
+}
+
+
+/* Description */
+
+.measure__text {
+  max-width: 28ch;
+
+  margin-top: 0.55rem;
+
+  font-size: 0.92rem;
+
+  line-height: 1.6;
+
+  color: rgba(248, 245, 238, 0.68);
+}
+
+
+/* ==========================================================
+   STATS STRIP
+   ========================================================== */
+
+.safety__stats {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  margin-top:
+    clamp(3rem, 5vw, 4rem);
+
+  padding-block: 1.4rem;
+
+  border:
+    1px solid rgba(212, 175, 55, 0.6);
+
+  border-radius: 999px;
+
+  background:
+    linear-gradient(180deg,
+      rgba(20, 58, 132, 0.25),
+      rgba(7, 31, 77, 0.35));
+
+  box-shadow:
+    0 0 40px -18px rgba(242, 169, 29, 0.35);
+}
+
+
+.stat {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 0.9rem;
+
+  padding: 0.25rem 1rem;
+
+  min-width: 0;
+}
+
+
+.stat+.stat::before {
+  content: '';
+
+  position: absolute;
+
+  left: 0;
+
+  top: 15%;
+  bottom: 15%;
+
+  width: 1px;
+
+  background:
+    rgba(212, 175, 55, 0.45);
+}
+
+
+.stat__icon {
+  flex-shrink: 0;
+
+  color: var(--gold);
+}
+
+
+.stat__text {
+  display: flex;
+
+  flex-direction: column;
+
+  min-width: 0;
+}
+
+
+.stat__value {
+  font-family: var(--font-display);
+
+  font-weight: 700;
+
+  font-size:
+    clamp(1.25rem, 1.05rem + 0.7vw, 1.65rem);
+
+  line-height: 1.15;
+
+  color: var(--gold-bright);
+
+  font-variant-numeric: lining-nums;
+}
+
+
+.stat__label {
+  font-size: 0.85rem;
+
+  color: rgba(248, 245, 238, 0.78);
+}
+
+
+/* ==========================================================
+   TABLET
+   ========================================================== */
+
+@media (max-width: 1199px) {
+
+  .safety__intro {
+    grid-template-columns:
+      minmax(0, 0.9fr) minmax(0, 1.1fr);
+
+    gap: 3rem;
+  }
+
+  .safety__head .section-header__title {
+    font-size:
+      clamp(2.8rem, 4vw, 4.2rem);
+  }
+
+  .safety__frame {
+    max-width: 700px;
+  }
+
+  .safety__measures {
+    grid-template-columns:
+      repeat(6, minmax(0, 1fr));
+
+    row-gap: 2.5rem;
+  }
+
+  .measure {
+    grid-column: span 2;
+  }
+
+  .measure:nth-child(4) {
+    grid-column: 2 / span 2;
+  }
+
+  .measure+.measure::before {
+    display: none;
+  }
+
+  .measure:nth-child(2)::before,
+  .measure:nth-child(3)::before,
+  .measure:nth-child(5)::before {
+    display: block;
+  }
+}
+
+
+/* ==========================================================
+   MOBILE / TABLET
+   ========================================================== */
+
+@media (max-width: 991px) {
+
+  .safety__stage {
+    min-height: auto;
+    height: auto;
+
+    padding:
+      5rem 0 4rem;
+  }
+
+  .safety__intro {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 3rem;
+
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .safety__head {
+    text-align: center;
+  }
+
+  .safety__head .section-header__eyebrow {
+    justify-content: center;
+  }
+
+  .safety__head .section-header__title {
+    max-width: 700px;
+
+    margin-inline: auto;
+
+    font-size:
+      clamp(2.7rem, 7vw, 4rem);
+  }
+
+  .safety__head .section-header__intro {
+    margin-inline: auto;
+
+    text-align: center;
+  }
+
+  .safety__lede {
+    max-width: 700px;
+
+    margin-inline: auto;
+
+    text-align: center;
+  }
+
+  .safety__layout {
+    width: 100%;
+  }
+
+  .safety__frame {
+    width: min(100%, 720px);
+
+    aspect-ratio: 1.25 / 1;
+  }
+
+  .safety__stats {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    row-gap: 1.25rem;
+
+    padding: 1.4rem 0.5rem;
+
+    border-radius: 24px;
+  }
+
+  .stat {
+    flex-direction: column;
+
+    gap: 0.5rem;
+
+    text-align: center;
+  }
+
+  .stat+.stat::before {
+    display: none;
+  }
+
+  .stat:nth-child(even)::before {
+    display: block;
+
+    content: '';
+
+    position: absolute;
+
+    left: 0;
+
+    top: 15%;
+    bottom: 15%;
+
+    width: 1px;
+
+    background:
+      rgba(212, 175, 55, 0.45);
+  }
+}
+
+
+/* ==========================================================
+   MOBILE
+   ========================================================== */
+
+@media (max-width: 767px) {
+
+  .safety__stage {
+    padding:
+      4rem 0 3rem;
+  }
+
+  .safety__intro {
+    gap: 2.25rem;
+  }
+
+  .safety__head .section-header__title {
+    font-size:
+      clamp(2.35rem, 10vw, 3.3rem);
+  }
+
+  .safety__head .section-header__intro {
+    font-size: 1.05rem;
+  }
+
+  .safety__lede {
+    font-size: 0.98rem;
+
+    line-height: 1.65;
+  }
+
+  .safety__frame {
+    aspect-ratio: 1 / 0.9;
+
+    border-radius: 20px;
+  }
+
+  .safety__frame::after {
+    border-radius: 20px;
+
+    transform: translate(8px, 8px);
+  }
+
+  .safety__measures {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    row-gap: 2.25rem;
+  }
+
+  .measure,
+  .measure:nth-child(4) {
+    grid-column: auto;
+  }
+
+  .measure:nth-child(5) {
+    grid-column: 1 / -1;
+  }
+
+  .measure::before,
+  .measure+.measure::before,
+  .measure:nth-child(2)::before,
+  .measure:nth-child(3)::before,
+  .measure:nth-child(5)::before {
+    display: none;
+  }
+
+  .measure__icon {
+    width: 58px;
+    height: 58px;
+  }
+
+  .measure__title {
+    font-size: 1rem;
+  }
+
+  .measure__text {
+    font-size: 0.85rem;
+  }
+}
+
+
+/* ==========================================================
+   VERY SMALL MOBILE
+   ========================================================== */
+
+@media (max-width: 419px) {
+
+  .safety__measures {
+    grid-template-columns:
+      minmax(0, 1fr);
+  }
+
+  .measure:nth-child(5) {
+    grid-column: auto;
+  }
+
+  .safety__stats {
+    grid-template-columns:
+      minmax(0, 1fr);
+  }
+
+  .stat:nth-child(even)::before {
+    display: none;
+  }
+}

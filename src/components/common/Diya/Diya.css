@@ -1,0 +1,25 @@
+.diya {
+  display: block;
+  overflow: visible;
+}
+
+.diya__flame {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: diya-flicker 2.6s ease-in-out infinite;
+}
+
+.diya__glow {
+  animation: diya-glow 2.6s ease-in-out infinite;
+}
+
+@keyframes diya-flicker {
+  0%, 100% { transform: scale(1, 1) rotate(0deg); }
+  30% { transform: scale(0.94, 1.06) rotate(-2deg); }
+  60% { transform: scale(1.04, 0.96) rotate(1.5deg); }
+}
+
+@keyframes diya-glow {
+  0%, 100% { opacity: 0.85; }
+  50% { opacity: 1; }
+}

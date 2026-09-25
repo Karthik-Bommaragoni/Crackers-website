@@ -1,0 +1,299 @@
+/* ==========================================================
+   FEATURE CARD
+   ========================================================== */
+
+.feature-card {
+  position: relative;
+
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+
+  gap: 0.85rem;
+
+  min-height: 92px;
+
+  padding:
+    0.8rem clamp(0.75rem, 1.3vw, 1.35rem);
+
+  /*
+    IMPORTANT:
+    No individual border.
+    The parent hero__features provides the outer border.
+  */
+
+  border: 0;
+
+  border-radius: 0;
+
+  background: transparent;
+
+  transition:
+    background-color 240ms ease,
+    transform 240ms ease;
+}
+
+
+/* ==========================================================
+   HOVER
+   ========================================================== */
+
+@media (hover: hover) and (pointer: fine) {
+  .feature-card:hover {
+    background:
+      linear-gradient(135deg,
+        rgba(212, 175, 55, 0.08),
+        rgba(255, 255, 255, 0.025));
+  }
+}
+
+
+/* ==========================================================
+   ICON
+   ========================================================== */
+
+.feature-card__icon {
+  display: grid;
+  place-items: center;
+
+  flex: 0 0 auto;
+
+  width: 42px;
+  height: 42px;
+
+  border-radius: 50%;
+
+  color: var(--hero-gold-bright, #f4b323);
+
+  background:
+    radial-gradient(circle at 35% 30%,
+      rgba(242, 169, 29, 0.2),
+      rgba(212, 175, 55, 0.04));
+
+  border: 1px solid rgba(212, 175, 55, 0.52);
+
+  box-shadow:
+    inset 0 0 12px rgba(242, 169, 29, 0.04);
+
+  transition:
+    transform 240ms ease,
+    background-color 240ms ease,
+    border-color 240ms ease;
+}
+
+
+@media (hover: hover) and (pointer: fine) {
+  .feature-card:hover .feature-card__icon {
+    transform: scale(1.05);
+
+    border-color:
+      rgba(244, 179, 35, 0.85);
+
+    background:
+      radial-gradient(circle at 35% 30%,
+        rgba(242, 169, 29, 0.3),
+        rgba(212, 175, 55, 0.08));
+  }
+}
+
+
+/* ==========================================================
+   TEXT
+   ========================================================== */
+
+.feature-card__text {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+}
+
+
+/* ==========================================================
+   TITLE
+   ========================================================== */
+
+.feature-card__title {
+  display: block;
+
+  overflow: hidden;
+
+  color: #ffffff;
+
+  font-size: clamp(0.72rem,
+      0.85vw,
+      0.96rem);
+
+  font-weight: 800;
+
+  line-height: 1.2;
+
+  letter-spacing: -0.01em;
+
+  text-transform: uppercase;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+}
+
+
+/* ==========================================================
+   SUBTITLE
+   ========================================================== */
+
+.feature-card__subtitle {
+  display: block;
+
+  margin-top: 0.28rem;
+
+  overflow: hidden;
+
+  color: rgba(222, 229, 240, 0.72);
+
+  font-size: clamp(0.65rem,
+      0.72vw,
+      0.8rem);
+
+  font-weight: 500;
+
+  line-height: 1.25;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+}
+
+
+/* ==========================================================
+   LARGE DESKTOP
+   ========================================================== */
+
+@media (min-width: 1200px) {
+  .feature-card {
+    min-height: 100px;
+    gap: 0.75rem;
+    padding: 0.8rem 1rem;
+  }
+
+  .feature-card__icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .feature-card__title {
+    font-size: 1rem;
+  }
+
+  .feature-card__subtitle {
+    font-size: 0.83rem;
+  }
+}
+
+/* ==========================================================
+   LAPTOP
+   ========================================================== */
+
+@media (max-width: 1199px) and (min-width: 992px) {
+  .feature-card {
+    min-height: 70px;
+
+    gap: 0.65rem;
+
+    padding:
+      0.65rem 0.8rem;
+  }
+
+  .feature-card__icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .feature-card__icon svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  .feature-card__title {
+    font-size: 1rem;
+  }
+
+  .feature-card__subtitle {
+    margin-top: 0.18rem;
+
+    font-size: 0.8rem;
+  }
+}
+
+
+/* ==========================================================
+   TABLET
+   ========================================================== */
+
+@media (max-width: 991px) and (min-width: 768px) {
+  .feature-card {
+    min-height: 64px;
+
+    gap: 0.5rem;
+
+    padding:
+      0.55rem 0.55rem;
+  }
+
+  .feature-card__icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .feature-card__icon svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  .feature-card__title {
+    font-size: 0.62rem;
+  }
+
+  .feature-card__subtitle {
+    font-size: 0.54rem;
+  }
+}
+
+
+/* ==========================================================
+   MOBILE
+   ========================================================== */
+
+@media (max-width: 767px) {
+  .feature-card {
+    min-height: 70px;
+
+    gap: 0.55rem;
+
+    padding:
+      0.7rem 0.75rem;
+  }
+
+  .feature-card__icon {
+    width: 34px;
+    height: 34px;
+  }
+
+  .feature-card__icon svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .feature-card__title {
+    font-size: 0.65rem;
+  }
+
+  .feature-card__subtitle {
+    font-size: 0.57rem;
+
+    white-space: normal;
+  }
+}

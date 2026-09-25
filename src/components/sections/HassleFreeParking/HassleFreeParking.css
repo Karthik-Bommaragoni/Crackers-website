@@ -1,0 +1,231 @@
+/* ==========================================================
+   Hassle-Free Parking — practical, spacious, plan-led
+   ========================================================== */
+.parking {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  padding: clamp(4.5rem, 9vw, 7.5rem) 0;
+  background:
+    radial-gradient(45% 55% at 78% 45%, rgba(242, 169, 29, 0.1) 0%, transparent 70%),
+    radial-gradient(50% 50% at 0% 0%, rgba(20, 58, 132, 0.5) 0%, transparent 70%),
+    linear-gradient(180deg, var(--navy-deep) 0%, var(--navy) 100%);
+}
+
+.parking__inner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: clamp(2.5rem, 5.5vw, 5.5rem);
+  max-width: 1360px;
+}
+
+.parking__line {
+  display: block;
+}
+
+.parking__copy .section-header__title {
+  font-size: clamp(2.5rem, 1.4rem + 3.4vw, 4.4rem);
+  line-height: 1.04;
+}
+
+.parking__lede {
+  max-width: 54ch;
+  margin-top: 1.5rem;
+  font-size: clamp(1rem, 0.95rem + 0.25vw, 1.1rem);
+  line-height: 1.75;
+  color: rgba(248, 245, 238, 0.8);
+}
+
+/* ---------- Feature rows (informational) ---------- */
+.parking__features {
+  display: grid;
+  gap: 1.35rem;
+  margin-top: 2.25rem;
+}
+
+.parking-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.1rem;
+}
+
+.parking-feature__icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  color: var(--gold-bright);
+  border: 1px solid rgba(212, 175, 55, 0.6);
+  background: radial-gradient(circle at 50% 35%, rgba(242, 169, 29, 0.14), transparent 70%);
+}
+
+.parking-feature__body {
+  display: block;
+  min-width: 0;
+  padding-top: 0.2rem;
+}
+
+.parking-feature__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.1rem, 1rem + 0.4vw, 1.3rem);
+  line-height: 1.25;
+  color: var(--white);
+}
+
+.parking-feature__text {
+  margin-top: 0.3rem;
+  font-size: 0.97rem;
+  line-height: 1.6;
+  color: rgba(248, 245, 238, 0.7);
+}
+
+.parking__cta {
+  margin-top: 2.25rem;
+}
+
+/* ---------- Site plan ---------- */
+.parking__plan {
+  margin: 0;
+}
+
+.parking__plan-frame {
+  display: block;
+  width: 100%;
+  min-height: 560px;
+
+  overflow: hidden;
+
+  border-radius: 26px;
+
+  border: 1px solid rgba(212, 175, 55, 0.55);
+
+  background: #061a32;
+
+  box-shadow:
+    0 0 0 6px rgba(212, 175, 55, 0.06),
+    0 0 60px -18px rgba(242, 169, 29, 0.45),
+    0 40px 70px -40px rgba(0, 0, 0, 0.85);
+}
+
+.parking__plan-image {
+  display: block;
+
+  width: 100%;
+  height: 560px;
+
+  transform: scale(1.04);
+
+  transition: transform 1.6s var(--ease-out);
+}
+.parking__plan.is-visible .parking__plan-image {
+  transform: scale(1);
+}
+
+.parking__caption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 1.4rem;
+  font-size: clamp(0.98rem, 0.94rem + 0.2vw, 1.08rem);
+  font-weight: 600;
+  text-align: center;
+  color: var(--cream);
+}
+
+.parking__caption::after {
+  content: '';
+  width: 120px;
+  height: 1px;
+  margin-top: 0.4rem;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.parking__caption-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+.parking__caption-dot {
+  color: var(--gold-bright);
+  font-family: inherit;
+  font-size: 0.75em;
+  line-height: 1;
+}
+.parking__caption-hint {
+  display: none;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: rgba(248, 245, 238, 0.55);
+}
+
+/* ---------- Festive details ---------- */
+.parking__burst {
+  top: -170px;
+  right: auto;
+  left: 34%;
+  width: 380px;
+  opacity: 0.08;
+}
+
+.parking__diya {
+  position: absolute;
+  z-index: 1;
+  bottom: 20px;
+  width: clamp(40px, 3.6vw, 58px);
+}
+
+.parking__diya--left { left: clamp(12px, 2.5vw, 40px); }
+.parking__diya--right { right: clamp(12px, 2.5vw, 40px); }
+
+.sparkles--parking .sparkle:nth-child(1) { top: 8%; left: 40%; animation-delay: 0.5s; }
+.sparkles--parking .sparkle:nth-child(2) { top: 12%; left: 94%; width: 10px; height: 10px; animation-delay: 2.2s; }
+.sparkles--parking .sparkle:nth-child(3) { top: 90%; left: 46%; width: 6px; height: 6px; animation-delay: 3.4s; }
+.sparkles--parking .sparkle:nth-child(4) { top: 30%; left: 3%; width: 6px; height: 6px; animation-delay: 1.2s; }
+.sparkles--parking .sparkle:nth-child(5) { top: 60%; left: 97%; width: 7px; height: 7px; animation-delay: 4.1s; }
+.sparkles--parking .sparkle:nth-child(6) { top: 4%; left: 72%; width: 5px; height: 5px; animation-delay: 2.9s; }
+
+/* ==========================================================
+   Responsive — the plan needs width to stay legible, so it
+   stacks below the copy on tablets and phones.
+   ========================================================== */
+@media (max-width: 991px) {
+  .parking__inner {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 760px;
+  }
+
+  .parking__caption-hint {
+    display: block;
+  }
+
+  .parking__diya {
+    display: none;
+  }
+}
+
+@media (max-width: 479px) {
+  .parking-feature__icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+  }
+
+  .parking__cta .btn {
+    width: 100%;
+  }
+
+  .parking__plan-frame {
+    border-radius: 18px;
+  }
+}

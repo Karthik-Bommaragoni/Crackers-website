@@ -1,0 +1,16 @@
+.lantern {
+  display: block;
+  overflow: visible;
+  transform-origin: 50% 0;
+  animation: lantern-sway 6s ease-in-out infinite;
+}
+
+.lantern__halo {
+  fill: rgba(255, 190, 90, 0.18);
+  filter: blur(4px);
+}
+
+@keyframes lantern-sway {
+  0%, 100% { transform: rotate(-1.6deg); }
+  50% { transform: rotate(1.6deg); }
+}

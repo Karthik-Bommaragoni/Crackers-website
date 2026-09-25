@@ -1,0 +1,110 @@
+/* ---------- Animated fireworks layer (size/position set by each section) ---------- */
+.fireworks-layer {
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+.burst {
+  transform-box: fill-box;
+  transform-origin: center;
+  opacity: 0;
+  animation: burst-bloom 11s var(--ease-out) infinite;
+}
+
+.burst__rays line {
+  stroke-width: 1.6;
+  stroke-linecap: round;
+}
+
+.burst__sparks {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: spark-drift 11s ease-out infinite;
+  animation-delay: inherit;
+}
+
+.burst--gold { color: var(--gold-bright); filter: drop-shadow(0 0 5px rgba(242, 169, 29, 0.85)); }
+.burst--rose { color: #ff7b8c; filter: drop-shadow(0 0 5px rgba(244, 85, 107, 0.8)); }
+.burst--white { color: #fff4d6; filter: drop-shadow(0 0 5px rgba(255, 244, 214, 0.85)); }
+
+.burst line { stroke: currentColor; }
+.burst circle { fill: currentColor; }
+.burst__core { opacity: 0.9; }
+
+/* Staggered so only one or two bloom at a time — calm, never busy */
+.burst--v1 { animation-delay: 0.8s; }
+.burst--v2 { animation-delay: 3s; }
+.burst--v3 { animation-delay: 5.2s; }
+.burst--v4 { animation-delay: 7.1s; }
+.burst--v5 { animation-delay: 9.2s; }
+.burst--v6 { animation-delay: 4.1s; }
+
+@keyframes burst-bloom {
+  0% { opacity: 0; transform: scale(0.25); }
+  6% { opacity: 1; }
+  22% { opacity: 0.9; transform: scale(1); }
+  40% { opacity: 0; transform: scale(1.06); }
+  100% { opacity: 0; transform: scale(1.06); }
+}
+
+@keyframes spark-drift {
+  0%, 12% { transform: translateY(0); }
+  40%, 100% { transform: translateY(8%); }
+}
+
+/* ---------- Static ornament behind the navy panel ---------- */
+.panel-burst {
+  position: absolute;
+  z-index: 0;
+  top: -22%;
+  right: -34%;
+  width: min(600px, 95%);
+  aspect-ratio: 1;
+  pointer-events: none;
+  opacity: 0.1;
+}
+
+.panel-burst .burst {
+  opacity: 1;
+  animation: none;
+  filter: none;
+  color: var(--gold);
+}
+
+.panel-burst .burst__sparks {
+  animation: none;
+}
+
+.panel-burst .burst__rays line {
+  stroke-width: 1;
+}
+
+/* ---------- Twinkling sparkles ---------- */
+.sparkles {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.sparkles--media {
+  z-index: 2;
+}
+
+.sparkle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: var(--gold-pale);
+  clip-path: polygon(50% 0, 60% 40%, 100% 50%, 60% 60%, 50% 100%, 40% 60%, 0 50%, 40% 40%);
+  filter: drop-shadow(0 0 4px rgba(242, 169, 29, 0.9));
+  opacity: 0;
+  animation: twinkle 5s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0; transform: scale(0.4) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1) rotate(45deg); }
+}

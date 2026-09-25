@@ -1,0 +1,203 @@
+/* ==========================================================
+   About — emotional, family-focused
+   ========================================================== */
+.about {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  padding: clamp(4.5rem, 9vw, 7.5rem) 0;
+  background:
+    radial-gradient(50% 60% at 85% 50%, rgba(242, 169, 29, 0.12) 0%, transparent 70%),
+    radial-gradient(60% 60% at 0% 100%, rgba(20, 58, 132, 0.5) 0%, transparent 70%),
+    linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
+}
+
+.about__inner {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 0.9fr) minmax(0, 1.1fr);
+
+  align-items: center;
+
+  gap: clamp(2.5rem, 5.5vw, 5.5rem);
+
+  max-width: 1360px;
+}
+
+.about__copy .section-header__title {
+  font-size: clamp(2.1rem, 1.2rem + 2.4vw, 3.5rem);
+  line-height: 1.1;
+  text-wrap: pretty;
+}
+
+.about__accent {
+  font-style: italic;
+  font-weight: 700;
+  padding-right: 0.06em;
+}
+
+.about__lede {
+  max-width: 54ch;
+  margin-top: 1.5rem;
+  font-size: clamp(1rem, 0.95rem + 0.25vw, 1.12rem);
+  line-height: 1.75;
+  color: rgba(248, 245, 238, 0.8);
+}
+
+.about__list {
+  display: grid;
+  gap: 0.95rem;
+  margin-top: 2rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.about__point {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  font-size: 1.02rem;
+  line-height: 1.55;
+  color: var(--white);
+}
+
+.about__check {
+  flex-shrink: 0;
+  margin-top: 0.05rem;
+  color: var(--gold-bright);
+}
+
+/* ---------- Image ---------- */
+.about__media {
+  position: relative;
+}
+
+/* Offset gold outline behind the photo */
+/* .about__media::before {
+  content: '';
+
+  position: absolute;
+
+  inset: 0;
+
+  transform:
+    translate(14px, 14px);
+
+  border:
+    1px solid rgba(212, 175, 55, 0.48);
+
+  border-radius: 30px;
+
+  pointer-events: none;
+
+  z-index: 0;
+} */
+
+.about__frame {
+  position: relative;
+
+  overflow: hidden;
+
+  aspect-ratio: 1243 / 1265;
+
+  width: 100%;
+
+  border-radius: 28px;
+
+  border: 1px solid rgba(212, 175, 55, 0.55);
+
+  background:
+      linear-gradient(145deg,
+        rgba(255, 255, 255, 0.035),
+        rgba(255, 255, 255, 0.01));
+  
+    box-shadow:
+      0 0 0 6px rgba(212, 175, 55, 0.06),
+      0 0 60px -18px rgba(242, 169, 29, 0.45),
+      0 40px 70px -40px rgba(0, 0, 0, 0.85);
+}
+
+.about__image {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  /*
+   * Show the COMPLETE image.
+   */
+  object-fit: contain;
+
+  object-position: center;
+
+  transform: scale(1);
+
+  transition:
+    transform 1.8s var(--ease-out);
+}
+
+.about__media.is-visible .about__image {
+  transform: scale(1);
+}
+
+/* Warm bottom glow so the photo sits in the navy */
+.about__frame::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 70%, rgba(6, 26, 58, 0.35) 100%);
+  pointer-events: none;
+}
+
+/* ---------- Festive details ---------- */
+.about__burst {
+  top: auto;
+  right: auto;
+  left: -170px;
+  bottom: -190px;
+  width: 440px;
+  opacity: 0.07;
+}
+
+.sparkles--about .sparkle:nth-child(1) { top: 8%; left: 46%; animation-delay: 0.6s; }
+.sparkles--about .sparkle:nth-child(2) { top: 14%; left: 95%; width: 10px; height: 10px; animation-delay: 2.4s; }
+.sparkles--about .sparkle:nth-child(3) { top: 88%; left: 52%; width: 6px; height: 6px; animation-delay: 3.8s; }
+.sparkles--about .sparkle:nth-child(4) { top: 20%; left: 4%; width: 6px; height: 6px; animation-delay: 1.4s; }
+.sparkles--about .sparkle:nth-child(5) { top: 92%; left: 94%; width: 8px; height: 8px; animation-delay: 4.6s; }
+.sparkles--about .sparkle:nth-child(6) { top: 50%; left: 49%; width: 5px; height: 5px; animation-delay: 3s; }
+
+/* ==========================================================
+   Responsive
+   ========================================================== */
+@media (max-width: 991px) {
+  .about__inner {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 720px;
+  }
+
+  .about__media {
+    margin-right: 18px; /* room for the offset outline */
+  }
+
+  .about__frame {
+    aspect-ratio: 4 / 4.2;
+  }
+}
+
+@media (max-width: 479px) {
+  .about__media::before {
+    transform: translate(12px, 12px);
+  }
+
+  .about__media {
+    margin-right: 12px;
+  }
+
+  .about__point {
+    font-size: 0.98rem;
+  }
+}

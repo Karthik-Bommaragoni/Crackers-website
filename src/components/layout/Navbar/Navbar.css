@@ -1,0 +1,237 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+
+  display: flex;
+  align-items: stretch;
+
+  height: var(--nav-h);
+
+  background:
+    radial-gradient(100% 180% at 0% 0%,
+      rgba(20, 58, 132, 0.32),
+      transparent 55%),
+    linear-gradient(180deg,
+      #071f52 0%,
+      #061a3a 100%);
+
+  border-bottom: 1px solid rgba(212, 175, 55, 0.45);
+
+  box-shadow:
+    0 6px 24px -16px rgba(0, 0, 0, 0.65);
+}
+
+/* Navy plaque that carries the cream logo, aligned with the hero's navy panel. */
+/* Logo area — seamlessly integrated into the navbar */
+.navbar__brand {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex: 0 0 clamp(190px, 13.7vw, 226px);
+
+  padding: 0;
+
+  /* Same background as the complete navbar */
+  background: transparent;
+}
+
+/* Remove the separate gold divider */
+.navbar__brand::after {
+  display: none;
+}
+
+.navbar__logo {
+  display: block;
+
+  height: calc(var(--nav-h) - 14px);
+  width: auto;
+
+  max-width: 82%;
+  object-fit: contain;
+}
+
+.navbar__nav {
+  display: flex;
+  align-items: center;
+
+  flex: 1;
+  min-width: 0;
+
+  padding-inline: clamp(20px, 2.5vw, 40px) var(--gutter);
+}
+
+.navbar__links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: clamp(1rem, 2.2vw, 2.25rem);
+
+  flex: 1;
+}
+.navbar__link {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+
+  gap: 0.4rem;
+
+  padding-block: 0.4rem;
+
+  font-size: 0.95rem;
+  font-weight: 600;
+
+  color: rgba(248, 245, 238, 0.94);
+
+  white-space: nowrap;
+
+  transition:
+    color 0.25s ease;
+}
+
+.navbar__link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1.5px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s var(--ease-out);
+}
+
+.navbar__link:hover {
+  color: #f4b323;
+}
+
+.navbar__link:hover::after {
+  transform: scaleX(1);
+}
+
+.navbar__link--call {
+  color: rgba(248, 245, 238, 0.96);
+}
+
+.navbar__link--call svg {
+  color: #f4b323;
+}
+
+.navbar__toggle {
+  display: none;
+}
+
+
+.mobile-menu {
+  display: none;
+}
+
+/* ---------- Mobile / tablet ---------- */
+@media (max-width: 991px) {
+  .navbar__nav {
+    display: none;
+  }
+
+  .navbar__brand {
+    padding-inline: var(--gutter) 22px;
+  }
+
+  .navbar__toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    width: 46px;
+    height: 46px;
+    margin-left: auto;
+    margin-right: calc(var(--gutter) - 6px);
+  color: #f7f2e8;
+  
+    border:
+      1px solid rgba(212, 175, 55, 0.35);
+  
+    background:
+      rgba(255, 255, 255, 0.04);
+    cursor: pointer;
+    transition: background-color 0.25s ease, border-color 0.25s ease;
+  }
+
+  .navbar__toggle:hover,
+  .navbar--open .navbar__toggle {
+    background: rgba(212, 175, 55, 0.14);
+    border-color: var(--gold);
+  }
+
+ .mobile-menu {
+   display: block;
+
+   position: absolute;
+
+   top: 100%;
+   left: 0;
+   right: 0;
+
+   padding:
+     var(--space-3) var(--gutter) var(--space-6);
+
+   background:
+     linear-gradient(180deg,
+       #071f52 0%,
+       #061a3a 100%);
+
+   border-bottom:
+     1px solid rgba(212, 175, 55, 0.45);
+
+   box-shadow:
+     0 24px 40px -24px rgba(0, 0, 0, 0.7);
+
+   animation:
+     menu-in 0.35s var(--ease-out);
+ }
+
+  .mobile-menu[hidden] {
+    display: none;
+  }
+
+  .mobile-menu__link {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 1rem 0.25rem;
+    font-size: 1.05rem;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(7, 31, 82, 0.08);
+  }
+    .mobile-menu__link {
+      color: rgba(248, 245, 238, 0.94);
+  
+      border-bottom:
+        1px solid rgba(255, 255, 255, 0.08);
+    }
+
+  .mobile-menu__link svg {
+    color: var(--gold);
+  }
+
+  .mobile-menu__cta {
+    width: 100%;
+    margin-top: var(--space-5);
+  }
+}
+
+@keyframes menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
