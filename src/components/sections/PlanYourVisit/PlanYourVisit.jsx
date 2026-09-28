@@ -10,8 +10,9 @@ import './PlanYourVisit.css';
 // Distances and road details exactly as supplied by the client.
 const FACTS = [
   { icon: Map, value: 'COMING FROM BENGALURU?', label: 'Your first crackers stop in Tamilnadu' },
-  { icon: CarFront, value: '~15 km', label: 'From Electronic City Toll Plaza' },
   { icon: MapPin, value: '~750 meters', label: 'From Attibele Toll Plaza' },
+  { icon: CarFront, value: '~15 km', label: 'From Electronic City Toll Plaza' },
+  
   // { icon: Route, value: 'On Bagalur Road', label: 'Bengaluru – Chennai Hwy' },
   
 ];
